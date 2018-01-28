@@ -70,6 +70,7 @@ public class SeckillController {
         return result;
     }
 
+    //÷¥––√Î…±
     @RequestMapping(value = "/{seckillId}/{md5}/execution",
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
@@ -85,7 +86,7 @@ public class SeckillController {
         SeckillResult<SeckillExecution> result;
 
         try {
-            SeckillExecution execution = seckillService.executeSeckill(seckillId, userPhone, md5);
+            SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, userPhone, md5);
             return new SeckillResult<SeckillExecution>(true, execution);
         }catch (RepeatKillException e1)
         {

@@ -38,10 +38,19 @@ public interface SeckillService {
 
     /**
      * 执行秒杀操作
-     * 并告知使用方可能抛出异常
+     * 并告知使用方可能抛出异常 通过异常告知spring是否提交事务
      * @param seckillId
      * @param userPhone
      * @param md5
      */
     SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException,SeckillCloseException,RepeatKillException;
+    /**
+     * 执行秒杀操作
+     * 并告知使用方可能抛出异常 如果是存储过程则无需抛异常
+     * @param seckillId
+     * @param userPhone
+     * @param md5
+     */
+    SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5) ;
+
 }
